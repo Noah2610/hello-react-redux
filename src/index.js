@@ -6,7 +6,7 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-import { configureStore } from './redux'
+import { configureStore } from './store'
 
 const store = configureStore()
 

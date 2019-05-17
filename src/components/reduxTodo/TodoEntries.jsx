@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { toggleTodo } from '../../redux/actions'
+import { toggleTodo } from '../../store/actions'
 import Todo from './Todo.jsx'
 
 class TodoEntries extends React.Component {

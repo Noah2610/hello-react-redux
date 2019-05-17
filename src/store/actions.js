@@ -1,7 +1,6 @@
-// import { ADD_TODO, TOGGLE_TODO } from './actionTypes'
-import { ACTION_RUN_FUNCTION_NAME, State, Todo } from './index'
+import { State, Todo } from './state'
 
-// let nextTodoId = 0
+export const ACTION_RUN_FUNCTION_NAME = 'run'
 
 export const addTodo = todoName => ({
   type: 'ADD_TODO',
@@ -14,11 +13,6 @@ export const addTodo = todoName => ({
     }
   },
 })
-// type: ADD_TODO,
-// payload: {
-//   id: ++nextTodoId,
-//   name: todoName,
-// },
 
 export const toggleTodo = targetId => ({
   type: 'TOGGLE_TODO',
@@ -34,7 +28,3 @@ export const toggleTodo = targetId => ({
     }
   },
 })
-// type: TOGGLE_TODO,
-// payload: {
-//   id: todoId,
-// },
