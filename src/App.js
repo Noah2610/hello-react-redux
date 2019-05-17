@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import logo from './logo.svg'
 import './App.css'
 
-import FilterableProductTable from './components/FilterableProductTable'
-import TodoApp from './components/TodoApp'
+import FilterableProductTableContainer from './containers/FilterableProductTable'
+import TodoAppContainer from './containers/TodoApp'
 
 const Box = styled.div`
   display: block;
@@ -17,14 +17,8 @@ const Box = styled.div`
 function App() {
   return (
     <div className="App">
-      <Box>
-        <div className="App-header">Filterable Products Table</div>
-        <FilterableProductTable />
-      </Box>
-      <Box>
-        <div className="App-header">Todo List</div>
-        <TodoApp />
-      </Box>
+      <FilterableProductTableContainer />
+      <TodoAppContainer />
     </div>
   )
 }

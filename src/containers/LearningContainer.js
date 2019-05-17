@@ -3,11 +3,7 @@ import styled from 'styled-components'
 
 import FilterableProductTable from '../components/FilterableProductTable.jsx'
 import TodoApp from '../components/TodoApp.jsx'
-
-const Box = styled.div`
-  border: solid 1px black;
-  display: block;
-`
+import Box from '../components/Box.jsx'
 
 class LearningContainer extends React.Component {
   render() {
