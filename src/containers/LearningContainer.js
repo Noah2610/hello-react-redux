@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import FilterableProductTable from '../components/learning/filterableProductsTable/FilterableProductTable.jsx'
-import TodoApp from '../components/learning/reduxTodo/TodoApp.jsx'
+import FilterableProductTable from '../components/FilterableProductTable.jsx'
+import TodoApp from '../components/TodoApp.jsx'
 
 const Box = styled.div`
   border: solid 1px black;

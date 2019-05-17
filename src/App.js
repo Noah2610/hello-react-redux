@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import logo from './logo.svg'
 import './App.css'
 
-import FilterableProductTable from './components/filterableProductsTable/FilterableProductTable'
-import TodoApp from './components/reduxTodo/TodoApp'
+import FilterableProductTable from './components/FilterableProductTable'
+import TodoApp from './components/TodoApp'
 
 const Box = styled.div`
   display: block;

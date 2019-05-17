@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { toggleTodo } from '../../store/actions'
+import { toggleTodo } from '../store/actions'
 import Todo from './Todo.jsx'
 
 class TodoEntries extends React.Component {
@@ -12,7 +12,6 @@ class TodoEntries extends React.Component {
 
   onTodoClick(event, todoId) {
     this.props.toggleTodo(todoId)
-    console.log(this.props.todos[0])
   }
 
   render() {
@@ -39,12 +38,9 @@ class TodoEntries extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state)
-  return {
-    todos: state ? state.todos : [],
-  }
-}
+const mapStateToProps = state => ({
+  todos: state ? state.todos : [],
+})
 
 const mapDispatchToProps = dispatch => ({
   toggleTodo: todoId => dispatch(toggleTodo(todoId)),
