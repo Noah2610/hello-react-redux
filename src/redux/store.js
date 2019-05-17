@@ -3,51 +3,76 @@ import { logger } from 'redux-logger'
 
 import { ADD_TODO, TOGGLE_TODO } from './actionTypes'
 
-const initialState = {
-  todos: [
-    {
-      id: 0,
-      name: 'Example Todo',
-      completed: true,
-    },
-  ],
+class Todo {
+  constructor({ id, name, completed = false }) {
+    this.id = id
+    this.name = name
+    this.completed = completed
+  }
 }
 
-/*
-a todo object looks like this:
-  {
-    id: 0,
-    name: 'My Todo',
-    completed: false,
+const todoMock = new Todo({
+  id: 0,
+  name: 'Example Todo',
+  completed: true,
+})
+
+class State {
+  constructor({ todos = [todoMock] } = {}) {
+    this.todos = todos
   }
-*/
+}
+
+const initialState = new State()
+// const initialState = {
+//   todos: [
+//     {
+//       id: 0,
+//       name: 'Example Todo',
+//       completed: true,
+//     },
+//   ],
+// }
 
 function reducer(state = initialState, action) {
-  const newState = { ...state }
-
   switch (action.type) {
     case ADD_TODO: {
       const { id, name } = action.payload
-      newState.todos.push({
-        id,
-        name,
-        completed: false,
+      return new State({
+        ...state,
+        todos: [].concat(state.todos, new Todo({ id, name })),
       })
-      break
+      // return {
+      //   ...state,
+      //   todos: [].concat(state.todos, new Todo({ id, name })),
+      // }
     }
 
     case TOGGLE_TODO: {
       const targetId = action.payload.id
-      const targetTodo = newState.todos.find(todo => {
-        return todo.id === targetId
+      return new State({
+        ...state,
+        todos: state.todos.map(
+          todo =>
+            new Todo({
+              ...todo,
+              completed:
+                todo.id === targetId ? !todo.completed : todo.completed,
+            })
+        ),
       })
-      // targetTodo.completed = !targecTodo.completed
-      newState.todos.push(targetTodo)
-      break
+      // return {
+      //   ...state,
+      //   todos: state.todos.map(todo => ({
+      //     ...todo,
+      //     completed: todo.id === targetId ? !todo.completed : todo.completed,
+      //   })),
+      // }
     }
-  }
 
-  return newState
+    default:
+      return state
+  }
 }
 
 // export default createStore(combineReducers({ /* ... reducer functions ... */ }))

@@ -18,11 +18,11 @@ function App() {
   return (
     <div className="App">
       <Box>
-        <div class="App-header">Filterable Products Table</div>
+        <div className="App-header">Filterable Products Table</div>
         <FilterableProductTable />
       </Box>
       <Box>
-        <div class="App-header">Todo List</div>
+        <div className="App-header">Todo List</div>
         <TodoApp />
       </Box>
     </div>

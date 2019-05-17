@@ -12,6 +12,7 @@ class TodoEntries extends React.Component {
 
   onTodoClick(event, todoId) {
     this.props.toggleTodo(todoId)
+    console.log(this.props.todos[0])
   }
 
   render() {
@@ -38,9 +39,12 @@ class TodoEntries extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  todos: state.todos,
-})
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    todos: state ? state.todos : [],
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   toggleTodo: todoId => dispatch(toggleTodo(todoId)),
